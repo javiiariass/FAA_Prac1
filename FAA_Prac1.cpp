@@ -18,7 +18,7 @@ const int N_BUSQUEDAS = 10;
 // Talla inicial
 const int TALLA_INICIAL = 1000;
 // Talla final
-const int TALLA_FINAL = 10000;
+const int TALLA_FINAL = 100000;
 // Incremento entre iteraciones de la talla
 const int TALLA_INCREMENTO = 1000;
 
@@ -56,9 +56,8 @@ int main() {
 	// Inicializa el generador de números aleatorios
 	std::random_device rd;  //inicializa la semilla 
 	std::mt19937 gen(rd());   //generador de números aleatorio basado en el algoritmo Mersenne Twister 19937 con la semilla rd()
-
 	archivo << std::fixed << std::setprecision(6); // Fijar precisión decimal
-	archivo << "Tamano del Vector;Mejor Tiempo (us);Peor Tiempo (us);Tiempo Medio (us)" << std::endl;
+	archivo << "Tamano del Vector;Mejor Tiempo (us); Peor Tiempo(us); Tiempo Medio(us)" << std::endl;
 
 	for (int n = TALLA_INICIAL; n <= TALLA_FINAL; n += TALLA_INCREMENTO) {
 		std::vector<int> vectorAleatorio = generarVectorAleatorio(n, gen);
@@ -83,7 +82,7 @@ int main() {
 			mejor_tiempo = std::min(mejor_tiempo, tiempo_busqueda);
 			peor_tiempo = std::max(peor_tiempo, tiempo_busqueda);
 
-			std::cout << "mejor: " << mejor_tiempo << "\npeor: " << peor_tiempo << "\nmedio: " << tiempo_busqueda << '\n';
+			//std::cout << "mejor: " << mejor_tiempo << "\npeor: " << peor_tiempo << "\nmedio: " << tiempo_busqueda << '\n';
 		}
 
 		// Calcula y guarda el tiempo medio, mejor y peor tiempo de búsqueda en el archivo
